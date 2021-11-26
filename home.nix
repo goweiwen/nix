@@ -1,25 +1,43 @@
 { pkgs, ... }:
 
 {
+  targets.genericLinux.enable = true;
+
+  home.username = "weiwen";
+  home.homeDirectory = "/home/weiwen";
+  
+  home.stateVersion = "22.05";
+
   home.packages = with pkgs; [
     bash
+    file
     gcc
     gnumake
-    ripgrep
-    tig
-
+    htop
     p7zip
+    unrar
+    unzip
 
     psmisc
     usbutils
 
+    bat
+    imagemagick
+    jq
+    jsonnet
+    ripgrep
+    tig
+    tldr
+
+    siege
+
     ranger
-    file
-    mpv
     imagemagick
     ffmpeg
     w3m
-    feh
+
+    # mpv
+    # feh
 
     python3
 
@@ -27,6 +45,8 @@
   ];
 
   programs = {
+    home-manager.enable = true;
+
     git = {
       enable = true;
       userName = "Goh Wei Wen";
@@ -119,19 +139,6 @@
       enableFishIntegration = true;
     };
 
-    alacritty = {
-      enable = true;
-      settings = {
-        window.padding.x = 4;
-        window.padding.y = 4;
-        window.dynamic_padding = true;
-      };
-    };
-
-    bat.enable = true;
-    firefox.enable = true;
-    jq.enable = true;
     ssh.enable = true;
-    htop.enable = true;
   };
 }
